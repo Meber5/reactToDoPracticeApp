@@ -11,6 +11,7 @@ class ToDoApp extends React.Component{
   }
 
   addToDo(task){
+    console.log(task);
     var t = {
       taskText: task,
       completed: false
@@ -19,8 +20,18 @@ class ToDoApp extends React.Component{
     dummyData.push(t);
     console.log(dummyData);
     this.setState({todos: dummyData});
-    return;
+  }
 
+  removeToDo(task){
+    console.log(dummyData);
+    var newData = dummyData.map((item) =>{
+      if(item.taskText !== task){
+        return item;
+      }
+    });
+    dummyData = newData;
+
+    this.setState({todos: dummyData});
   }
 
   componentDidMount(){
@@ -30,8 +41,8 @@ class ToDoApp extends React.Component{
   render(){
     return(
       <div className="container">
-        <InputLine submit={()=>this.addToDo('test1')}/>
-        <ToDoList todos={this.state.todos} />
+        <InputLine submit={(task)=>this.addToDo(task)}/>
+        <ToDoList todos={this.state.todos} todoXClick={(task) => this.removeToDo(task)}/>
       </div>
     )
   }

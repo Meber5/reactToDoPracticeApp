@@ -6,17 +6,29 @@ class InputLine extends React.Component {
     this.state={text: ""};
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e){
     this.setState({text: e.target.value});
   }
 
+  handleSubmit(input){
+    if(this.state.text.length > 0){
+      this.props.submit(this.state.text);
+      console.log(this.state.text);
+      this.setState({text: ""});
+    }
+    else{
+      alert('Must enter a task to complete.')
+    }
+  }
+
   render(){
     return (
       <div>
         <input type="text" placeholder="New task..." value={this.state.text} onChange={this.handleChange}/>
-        <button onClick={this.props.submit}>Submit</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }
