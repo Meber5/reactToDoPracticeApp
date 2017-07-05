@@ -13,7 +13,7 @@ class InputLine extends React.Component {
     this.setState({text: e.target.value});
   }
 
-  handleSubmit(input){
+  handleSubmit(){
     if(this.state.text.length > 0){
       this.props.submit(this.state.text);
       console.log(this.state.text);

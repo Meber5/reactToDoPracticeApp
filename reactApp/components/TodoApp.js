@@ -18,20 +18,18 @@ class ToDoApp extends React.Component{
     }
 
     dummyData.push(t);
-    console.log(dummyData);
     this.setState({todos: dummyData});
   }
 
   removeToDo(task){
-    console.log(dummyData);
-    var newData = dummyData.map((item) =>{
-      if(item.taskText !== task){
-        return item;
+    dummyData.forEach((item) =>{
+      if(item.taskText === task.taskText){
+        item.completed = true;
       }
     });
-    dummyData = newData;
 
     this.setState({todos: dummyData});
+    //console.log("ok", task, this.state.todos);
   }
 
   componentDidMount(){
@@ -42,7 +40,7 @@ class ToDoApp extends React.Component{
     return(
       <div className="container">
         <InputLine submit={(task)=>this.addToDo(task)}/>
-        <ToDoList todos={this.state.todos} todoXClick={(task) => this.removeToDo(task)}/>
+        <ToDoList todos={this.state.todos} todoXClick={(task)=>this.removeToDo(task)}/>
       </div>
     )
   }
