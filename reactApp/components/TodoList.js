@@ -1,20 +1,23 @@
 import React from 'react';
-import ToDo from './Todo';
+import Todo from './Todo';
 
-class ToDoList extends React.Component{
-  constructor(props){
-    super(props);
-  }
-
-  render(){
-    return(
-      <div>
-        <ul>
-          {this.props.todos.map((item)=> <ToDo key={item.taskText} task={item.taskText} todoXClick={this.props.todoXClick} completed={item.completed}/>)}
-        </ul>
-      </div>
-    )
-  }
+const TodoList =({ todos, toggleTodo, deleteTodo }) => {
+  return (
+    <ul>
+      {
+        todos.map((todo) => (
+          <Todo
+            key={todo.id}
+            task={todo.task}
+            completed={todo.completed}
+            // Now we will use matching by id's instead of index
+            toggleTodo={() => toggleTodo(todo.id)}
+            deleteTodo={() => deleteTodo(todo.id)}
+          />
+        ))
+      }
+    </ul>
+  )
 }
 
-export default ToDoList;
+export default TodoList;

@@ -1,22 +1,14 @@
 import React from 'react';
 
-class ToDo extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(){
-    this.props.todoXClick(this.props.task);
-  }
-
-  render(){
-    if(this.props.completed !== true){
-      return <li><button onClick={this.handleClick}>{'X'}</button>{this.props.task}</li>;
-    }
-    return <li><button onClick={this.handleClick}>{'X'}</button>  <strike>{this.props.task}</strike></li>;
-  }
+const Todo = ({task, completed, toggleTodo, deleteTodo}) => {
+  return (
+    <li>
+      <span onClick={toggleTodo}>
+        {completed ? <strike> {task} </strike> : task}
+      </span>
+      <button onClick={deleteTodo}>Remove</button>
+    </li>
+  );
 }
 
-export default ToDo;
+export default Todo;
