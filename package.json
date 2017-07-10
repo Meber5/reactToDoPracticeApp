@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "node server.js",
     "start": "node reactApp/app.js",
     "dev": "webpack-dev-server --content-base build/",
     "webpack": "webpack"
@@ -23,11 +24,16 @@
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
     "webpack-dev-server": "^2.5.0"
   }
 }

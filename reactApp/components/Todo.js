@@ -6,7 +6,8 @@ const Todo = ({task, completed, toggleTodo, deleteTodo}) => {
       <span onClick={toggleTodo}>
         {completed ? <strike> {task} </strike> : task}
       </span>
-      <button onClick={deleteTodo}>Remove</button>
+      <span>    </span>
+      <button onClick={deleteTodo}>X</button>
     </li>
   );
 }

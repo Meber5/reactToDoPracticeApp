@@ -10,7 +10,6 @@ let id = 0;
 let TodoApp =({ todos, addTodoClick, toggleTodoClick, deleteTodoClick }) => {
     return (
         <div>
-        {/* leave this alone for now */}
         <InputLine
             addTodo={(text) => addTodoClick(id++, text)}
         />

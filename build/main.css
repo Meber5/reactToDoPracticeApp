@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-right:80px;
+  margin-left:80px;
+}
+
+.container{
+  background-color: pink;
+  padding: 100px;
+  border-radius: 100px;
+}
